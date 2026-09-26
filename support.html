@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Support — digiLife Education Edition</title>
+
+    <meta
+        name="description"
+        content="Support and help for digiLife Education Edition."
+    >
+
+    <style>
+        :root {
+            --background: #071521;
+            --panel: #102b3d;
+            --text: #f4f8fb;
+            --secondary-text: #b7c9d6;
+            --accent: #58d4c7;
+            --accent-secondary: #69aee8;
+            --border: rgba(255, 255, 255, 0.10);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Helvetica,
+                Arial,
+                sans-serif;
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    #12354a 0%,
+                    var(--background) 45%
+                );
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .container {
+            width: min(850px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+
+        header {
+            border-bottom: 1px solid var(--border);
+            background: rgba(7, 21, 33, 0.88);
+        }
+
+        nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            color: var(--text);
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            text-decoration: none;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* Main */
+
+        main {
+            padding: 90px 0 110px;
+        }
+
+        .title {
+            margin-bottom: 55px;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            line-height: 1;
+            letter-spacing: -0.055em;
+        }
+
+        .intro {
+            max-width: 700px;
+            margin: 0;
+            color: var(--secondary-text);
+            font-size: 1.1rem;
+        }
+
+        /* Support Sections */
+
+        .support-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .support-card {
+            padding: 34px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.045),
+                    rgba(255, 255, 255, 0.015)
+                );
+        }
+
+        .support-card h2 {
+            margin: 0 0 10px;
+            font-size: 1.4rem;
+            letter-spacing: -0.025em;
+        }
+
+        .support-card p {
+            margin: 0;
+            color: var(--secondary-text);
+        }
+
+        .support-card p + p {
+            margin-top: 14px;
+        }
+
+        .highlight {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* Contact */
+
+        .contact {
+            margin-top: 50px;
+            padding: 42px;
+            text-align: center;
+            border: 1px solid rgba(88, 212, 199, 0.25);
+            border-radius: 20px;
+            background: rgba(88, 212, 199, 0.055);
+        }
+
+        .contact h2 {
+            margin: 0 0 12px;
+            font-size: 1.7rem;
+            letter-spacing: -0.03em;
+        }
+
+        .contact p {
+            max-width: 620px;
+            margin: 0 auto;
+            color: var(--secondary-text);
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 36px 0;
+            border-top: 1px solid var(--border);
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-content a {
+            color: var(--secondary-text);
+            text-decoration: none;
+        }
+
+        .footer-content a:hover {
+            color: var(--text);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 600px) {
+            .container {
+                width: min(100% - 28px, 850px);
+            }
+
+            main {
+                padding: 70px 0 90px;
+            }
+
+            .support-card {
+                padding: 25px;
+            }
+
+            .contact {
+                padding: 30px 24px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a class="brand" href="./">
+                digi<span>Life</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="./">Home</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+
+        <div class="title">
+            <h1>Support</h1>
+
+            <p class="intro">
+                Help and information for digiLife Education Edition.
+                Whether you're creating your first experiment or
+                exploring a complex digital ecosystem, resources are
+                available to help you get the most from digiLife.
+            </p>
+        </div>
+
+        <div class="support-grid">
+
+            <section class="support-card">
+                <h2>Getting Started</h2>
+
+                <p>
+                    digiLife includes a Guided Simulator designed to
+                    introduce the major parts of an experiment through
+                    a structured setup process.
+                </p>
+
+                <p>
+                    If you're new to digiLife, the
+                    <span class="highlight">Guided Simulator</span>
+                    is a good place to begin.
+                </p>
+            </section>
+
+            <section class="support-card">
+                <h2>Sandbox Simulator</h2>
+
+                <p>
+                    Sandbox mode provides greater control over
+                    populations, environmental conditions, nutrients,
+                    mutation, and other experimental parameters.
+                </p>
+
+                <p>
+                    Use Sandbox when you want to construct your own
+                    evolutionary experiments and investigate how
+                    changing conditions affect a population.
+                </p>
+            </section>
+
+            <section class="support-card">
+                <h2>User Guide</h2>
+
+                <p>
+                    digiLife Education Edition contains an integrated
+                    User Guide covering Guided experiments, Sandbox
+                    experiments, simulation controls, symbols, and
+                    terminology.
+                </p>
+
+                <p>
+                    Open the <span class="highlight">Learn</span>
+                    section inside digiLife to access these resources.
+                </p>
+            </section>
+
+            <section class="support-card">
+                <h2>Simulation Behavior</h2>
+
+                <p>
+                    digiLife models interacting biological systems
+                    including inheritance, mutation, metabolism,
+                    growth, reproduction, competition, predation,
+                    environmental response, aging, and natural
+                    selection.
+                </p>
+
+                <p>
+                    Because populations develop from these interacting
+                    systems, different experiments can produce very
+                    different outcomes.
+                </p>
+            </section>
+
+            <section class="support-card">
+                <h2>Reporting a Problem</h2>
+
+                <p>
+                    If digiLife behaves unexpectedly, please include
+                    as much information as possible when requesting
+                    support.
+                </p>
+
+                <p>
+                    Helpful information includes the digiLife version,
+                    iPad model, iPadOS version, whether you were using
+                    Guided or Sandbox mode, and the steps that led to
+                    the problem.
+                </p>
+            </section>
+
+        </div>
+
+        <section class="contact">
+            <h2>Need additional help?</h2>
+
+            <p>
+                Support contact information will be provided here.
+                In the meantime, the integrated digiLife User Guide
+                contains detailed information about the simulator,
+                its controls, and its biological systems.
+            </p>
+        </section>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+
+            <div>
+                © 2026 digiLife. All rights reserved.
+            </div>
+
+            <div class="footer-links">
+                <a href="./">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
