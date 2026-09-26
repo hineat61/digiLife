@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>digiLife Education Edition</title>
+
+    <meta
+        name="description"
+        content="digiLife Education Edition is an interactive digital-organism simulator for exploring evolution, ecology, inheritance, and natural selection."
+    >
+
+    <style>
+        :root {
+            --background: #071521;
+            --background-secondary: #0c2030;
+            --panel: #102b3d;
+            --text: #f4f8fb;
+            --secondary-text: #b7c9d6;
+            --accent: #58d4c7;
+            --accent-secondary: #69aee8;
+            --border: rgba(255, 255, 255, 0.10);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Helvetica,
+                Arial,
+                sans-serif;
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    #12354a 0%,
+                    var(--background) 48%
+                );
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            width: min(1100px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+
+        header {
+            border-bottom: 1px solid var(--border);
+            background: rgba(7, 21, 33, 0.88);
+        }
+
+        nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            text-decoration: none;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 100px 0 90px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .edition {
+            display: inline-block;
+            padding: 7px 14px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(88, 212, 199, 0.35);
+            border-radius: 999px;
+            color: var(--accent);
+            background: rgba(88, 212, 199, 0.08);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(4rem, 10vw, 7rem);
+            line-height: 0.95;
+            letter-spacing: -0.065em;
+        }
+
+        .hero h2 {
+            margin: 30px auto 0;
+            max-width: 760px;
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            font-weight: 500;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 26px auto 0;
+            color: var(--secondary-text);
+            font-size: 1.1rem;
+        }
+
+        /* Features */
+
+        .features {
+            padding: 30px 0 100px;
+        }
+
+        .section-heading {
+            max-width: 700px;
+            margin: 0 auto 48px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 12px;
+            font-size: 2.2rem;
+            letter-spacing: -0.04em;
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: var(--secondary-text);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.045),
+                    rgba(255, 255, 255, 0.015)
+                );
+        }
+
+        .feature h3 {
+            margin: 0 0 10px;
+            font-size: 1.15rem;
+        }
+
+        .feature p {
+            margin: 0;
+            color: var(--secondary-text);
+            font-size: 0.95rem;
+        }
+
+        /* Statement */
+
+        .statement {
+            padding: 90px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.018);
+        }
+
+        .statement p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1.25;
+            letter-spacing: -0.04em;
+            font-weight: 600;
+        }
+
+        .statement span {
+            color: var(--accent);
+        }
+
+        /* About */
+
+        .about {
+            padding: 100px 0;
+        }
+
+        .about-content {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            margin-top: 0;
+            font-size: 2.2rem;
+            letter-spacing: -0.04em;
+        }
+
+        .about p {
+            color: var(--secondary-text);
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 36px 0;
+            border-top: 1px solid var(--border);
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--secondary-text);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 800px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 90px 0;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .container {
+                width: min(100% - 28px, 1100px);
+            }
+
+            nav {
+                min-height: 64px;
+            }
+
+            .nav-links a:first-child {
+                display: none;
+            }
+
+            .hero {
+                padding: 75px 0;
+            }
+
+            .feature {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a class="brand" href="./">
+                digi<span>Life</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+
+                <div class="edition">
+                    Education Edition
+                </div>
+
+                <h1>digiLife</h1>
+
+                <h2>
+                    Explore evolution through an interactive
+                    digital ecosystem.
+                </h2>
+
+                <p>
+                    Create populations, shape their environment,
+                    and watch organisms grow, compete, reproduce,
+                    adapt, and evolve across generations.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2>Evolution in action</h2>
+                <p>
+                    Experiment with the forces that shape populations
+                    and discover how complex ecological relationships
+                    can emerge over time.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+
+                <article class="feature">
+                    <h3>Build an Ecosystem</h3>
+                    <p>
+                        Introduce populations into a virtual culture
+                        chamber and observe organisms interact with
+                        nutrients, competitors, predators, and their
+                        environment.
+                    </p>
+                </article>
+
+                <article class="feature">
+                    <h3>Watch Evolution Unfold</h3>
+                    <p>
+                        Inheritance, mutation, reproduction, competition,
+                        aging, and natural selection interact across
+                        generations.
+                    </p>
+                </article>
+
+                <article class="feature">
+                    <h3>Change the Environment</h3>
+                    <p>
+                        Explore temperature, pH, illumination, nutrients,
+                        and spatial variation to see how environmental
+                        conditions influence survival and reproduction.
+                    </p>
+                </article>
+
+                <article class="feature">
+                    <h3>Evolve New Capabilities</h3>
+                    <p>
+                        Populations can develop sensory, chemical,
+                        defensive, environmental, and communication
+                        innovations as evolution proceeds.
+                    </p>
+                </article>
+
+                <article class="feature">
+                    <h3>Guided Experiments</h3>
+                    <p>
+                        Use a structured workflow designed to make
+                        evolutionary and ecological concepts approachable
+                        for learning and observation.
+                    </p>
+                </article>
+
+                <article class="feature">
+                    <h3>Sandbox Exploration</h3>
+                    <p>
+                        Create custom populations and environments,
+                        adjust experimental conditions, and investigate
+                        your own evolutionary questions.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="statement">
+        <div class="container">
+            <p>
+                Create an ecosystem.
+                Change the conditions.
+                Watch generations pass.
+                <span>See what evolves.</span>
+            </p>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+
+                <h2>Learn through experimentation</h2>
+
+                <p>
+                    digiLife Education Edition is an interactive
+                    digital-organism simulator designed to make concepts
+                    from biology, evolution, ecology, inheritance, and
+                    natural selection visible and experimentally
+                    accessible.
+                </p>
+
+                <p>
+                    There is no predetermined evolutionary destination.
+                    The populations you observe emerge from inherited
+                    variation, environmental conditions, ecological
+                    interactions, and the passage of generations.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+
+            <div>
+                © 2026 digiLife. All rights reserved.
+            </div>
+
+            <div class="footer-links">
+                <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
